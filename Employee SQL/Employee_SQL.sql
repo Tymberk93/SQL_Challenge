@@ -13,13 +13,14 @@ CREATE TABLE Departments (
 -- Create employee table.
 
 DROP TABLE IF EXISTS Employees;
+DROP TABLE Employees CASCADE 
 
 CREATE TABLE Employees (
 	emp_no INT NOT NULL,
 	emp_title_id VARCHAR(20) NOT NULL,
 	birth_date DATE NOT NULL,
 	first_name VARCHAR(20) NOT NULL,
-	last_night VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
 	sex VARCHAR(20) NOT NULL,
 	hire_date DATE NOT NULL,
 	PRIMARY KEY (emp_no)
@@ -32,7 +33,7 @@ SELECT * FROM Employees;
 DROP TABLE IF EXISTS dept_emp;
 
 CREATE TABLE dept_emp (
-	emp_no INT NOT NULL,
+	emp_no INT NOT NULL PRIMARY KEY,
 	dept_no VARCHAR(20) NOT NULL
 );
 
@@ -44,7 +45,7 @@ DROP TABLE IF EXISTS dept_managers;
 
 CREATE TABLE dept_managers (
 	dept_no VARCHAR(20) NOT NULL,
-	emp_no INT
+	emp_no INT PRIMARY KEY
 );
 
 SELECT * FROM dept_managers;
@@ -66,7 +67,7 @@ SELECT * FROM salaries
 DROP TABLE IF EXISTS titles;
 
 CREATE TABLE titles (
-	emp_no VARCHAR(20) NOT NULL,
+	emp_no VARCHAR(20) NOT NULL PRIMARY KEY,
 	title VARCHAR(20) NOT NULL
 );
 
